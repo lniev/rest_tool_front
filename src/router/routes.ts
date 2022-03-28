@@ -1,18 +1,18 @@
-import { createRouter, createWebHistory } from "vue-router";
-const routes = [
-	{
-		path: "/",
-		component: import("@/pages/home/home.vue"),
-	},
-	{
-		path: "/test",
-		component: import("@/pages/test/test.vue"),
-		meta: { transition: "slide-left" },
-	},
+import { RouteRecordRaw } from 'vue-router';
+
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+  },
+
+  // Always leave this as last one,
+  // but you can also remove it
+  {
+    path: '/:catchAll(.*)*',
+    component: () => import('pages/ErrorNotFound.vue'),
+  },
 ];
 
-const router = createRouter({
-	history: createWebHistory(),
-	routes,
-});
-export default router;
+export default routes;
