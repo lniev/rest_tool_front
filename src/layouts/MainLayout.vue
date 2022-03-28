@@ -1,53 +1,53 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+    <q-header>
+      <q-bar class="bar">
+        <q-icon name="laptop_chromebook"/>
+        <div>Lniev</div>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <q-space/>
 
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+        <q-btn dense flat icon="minimize"/>
+        <q-btn dense flat icon="crop_square"/>
+        <q-btn dense flat icon="close"/>
+      </q-bar>
     </q-header>
 
     <q-drawer
-      v-model="leftDrawerOpen"
+      v-model="drawer"
       show-if-above
-      bordered
+      :width="60"
+      :breakpoint="500"
+      class="bg-primary"
+      persistent
     >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
+      <q-scroll-area class="fit">
+        <q-list>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+          <q-item clickable v-ripple v-for="item in linksList" >
+            <q-item-section avatar>
+              <q-icon name={{item.icon}} color="white"/>
+            </q-item-section>
+          </q-item>
+
+          <q-item active clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="star" color="white"/>
+            </q-item-section>
+          </q-item>
+
+        </q-list>
+      </q-scroll-area>
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <router-view/>
     </q-page-container>
   </q-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
+<script lang="ts" setup>
+import {ref} from 'vue';
 
 const linksList = [
   {
@@ -93,24 +93,15 @@ const linksList = [
     link: 'https://awesome.quasar.dev'
   }
 ];
+const leftDrawerOpen = ref(false)
+const miniState = ref(false)
+const drawer = ref(false)
 
-export default defineComponent({
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-});
 </script>
+<style lang="scss" scoped>
+@import "../css/app.scss";
+
+.bar {
+  background-color: $white-1;
+}
+</style>
