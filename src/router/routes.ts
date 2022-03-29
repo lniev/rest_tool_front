@@ -1,17 +1,18 @@
-import {RouteRecordRaw} from 'vue-router';
+import { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('src/layouts/MainLayout.vue'),
     children: [
       {
-        path: '/home', component: () => import('pages/IndexPage.vue')
+        path: '/home',
+        component: () => import('src/pages/IndexPage.vue'),
       },
       {
         path: '/calendar',
-        component: () => import('pages/Calendar/Calendar.vue')
-      }
+        component: () => import('src/pages/Calendar/Calendar.vue'),
+      },
     ],
   },
 
@@ -19,7 +20,7 @@ const routes: RouteRecordRaw[] = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
+    component: () => import('src/pages/ErrorNotFound/ErrorNotFound.vue'),
   },
 ];
 

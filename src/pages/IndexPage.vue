@@ -1,19 +1,16 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component title="Example component" active :todos="todos" :meta="meta"></example-component>
+    home
   </q-page>
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { ExampleComponent },
   setup() {
-    const todos = ref<Todo[]>([
+    const todos = ref<any[]>([
       {
         id: 1,
         content: 'ct1',
@@ -35,7 +32,7 @@ export default defineComponent({
         content: 'ct5',
       },
     ]);
-    const meta = ref<Meta>({
+    const meta = ref<any>({
       totalCount: 1200,
     });
     return { todos, meta };

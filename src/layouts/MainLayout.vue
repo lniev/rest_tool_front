@@ -72,7 +72,7 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-@import '../css/app.scss';
+@import '../styles/app.scss';
 
 .bar {
   background-color: $white-1;
