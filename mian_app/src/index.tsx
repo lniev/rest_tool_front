@@ -4,6 +4,7 @@ import Router from './router/router';
 import { BrowserRouter } from 'react-router-dom';
 import microApp from '@micro-zoe/micro-app';
 import BaseLayout from './layout/BaseLayout';
+
 microApp.start({
   plugins: {
     modules: {

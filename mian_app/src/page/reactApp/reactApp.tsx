@@ -7,8 +7,7 @@ const Component: FC<IProps> = () => {
   useEffect(() => {}, []);
   return (
     <div>
-      <h1>子应用</h1>
-      <micro-app name="react-app" url="http://localhost:8077/" baseroute="/rp/"></micro-app>
+      <micro-app name="react-app" url="http://localhost:8077/" baseroute="/rp/" keep-alive></micro-app>
     </div>
   );
 };

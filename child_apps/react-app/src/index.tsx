@@ -1,7 +1,7 @@
 import './public-path';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 // @ts-ignore
@@ -9,7 +9,7 @@ const _App = ReactDOM.createRoot(document.getElementById('react-app'))
 _App.render(
   <React.StrictMode>
       <BrowserRouter>
-          <App />
+          <App/>
       </BrowserRouter>
   </React.StrictMode>
 );
