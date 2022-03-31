@@ -5,17 +5,15 @@ import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import 'antd/dist/antd.css';
 import '@ant-design/pro-layout/dist/layout.css';
 import { level1Menu, level2Menu } from './menu';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import Router from '../router/router';
 
 export default (props) => {
-  // const location = useLocation();
-  const [pathname, setPathname] = useState('/home');
+  const location = useLocation();
   return (
     <ProLayout
       location={{
-        pathname: pathname,
-        // location.pathname,
+        pathname: location.pathname,
       }}
       style={{ height: '100vh' }}
       collapsedButtonRender={false}
@@ -24,16 +22,7 @@ export default (props) => {
         routes: level1Menu,
       }}
       headerRender={false}
-      menuItemRender={(item, dom) => (
-        <Link
-          to={item.path}
-          onClick={() => {
-            setPathname(item.path);
-          }}
-        >
-          {dom}
-        </Link>
-      )}
+      menuItemRender={(item, dom) => <NavLink to={item.path}>{dom}</NavLink>}
       disableContentMargin
     >
       {/*<ProLayout*/}

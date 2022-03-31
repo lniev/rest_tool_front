@@ -1,11 +1,10 @@
 // router.js
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import Home from '../page/home/home.page';
 import BaseLayout from '../layout/BaseLayout';
 
 const ReactApp = lazy(() => import('../page/reactApp/reactApp'));
-// const Home = lazy(() => import('../page/home/home.page'));
+const Home = lazy(() => import('../page/home/home.page'));
 export default function AppRoute() {
   const loading = <div>Loading...</div>;
   return (
@@ -20,7 +19,14 @@ export default function AppRoute() {
             <div>/////</div>
           }
         ></Route> */}
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home"
+          element={
+            <Suspense fallback={<></>}>
+              <Home />
+            </Suspense>
+          }
+        />
         <Route
           path="/rp"
           element={
