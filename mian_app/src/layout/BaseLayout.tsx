@@ -20,7 +20,6 @@ export default (props) => {
       style={{ height: '100vh' }}
       collapsedButtonRender={false}
       collapsed
-      // iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
       route={{
         routes: level1Menu,
       }}
