@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Router from './router/router';
 import { BrowserRouter } from 'react-router-dom';
 import microApp from '@micro-zoe/micro-app';
+import BaseLayout from './layout/BaseLayout';
 microApp.start({
   plugins: {
     modules: {
@@ -41,7 +42,9 @@ const client = ReactDOM.createRoot(document.getElementById('root'));
 client.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Router />
+      <BaseLayout>
+        <Router />
+      </BaseLayout>
     </BrowserRouter>
   </React.StrictMode>
 );
