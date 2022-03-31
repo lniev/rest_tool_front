@@ -1,21 +1,28 @@
-import React from 'react';
+import { Routes, Route,Outlet ,useLocation} from 'react-router-dom';
 import './App.css';
-
+import logo from './logo.svg'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const location = useLocation();
+    console.log('==== location ====', location)
+    return (
+        <div className="App">
+            <Routes>
+                <Route path="/" element={<div>子应用   <Outlet /></div>}>
+                    {/*<Route path="" element={<div>children2</div>} />*/}
+                    <Route
+                        path="/rp"
+                        element={
+                            <div>
+                                <code>2312</code>
+                                <img src={logo} height="100px" alt="11" />
+                            </div>
+                        }
+                    />
+                </Route>
+
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

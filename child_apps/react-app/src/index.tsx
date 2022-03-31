@@ -1,16 +1,20 @@
+import './public-path';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import './public-path';
-
 // @ts-ignore
-ReactDOM.createRoot(document.getElementById('root')).render(
+const _App = ReactDOM.createRoot(document.getElementById('react-app'))
+_App.render(
   <React.StrictMode>
-      {/*@ts-ignore*/}
-      <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
+      <BrowserRouter>
           <App />
       </BrowserRouter>
   </React.StrictMode>
 );
+
+// window.addEventListener('unmount', function () {
+//     // @ts-ignore
+//     _App.unmount(document.getElementById('react-app'))
+// })
