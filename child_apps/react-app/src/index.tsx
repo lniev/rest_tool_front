@@ -8,7 +8,8 @@ import App from "./App";
 const _App = ReactDOM.createRoot(document.getElementById("react-app"));
 _App.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		{/*@ts-ignore*/}
+		<BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
 			<App />
 		</BrowserRouter>
 	</React.StrictMode>

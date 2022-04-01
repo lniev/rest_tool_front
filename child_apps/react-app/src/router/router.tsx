@@ -6,16 +6,14 @@ const Router = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<div>index child react-app</div>}></Route>
-			<Route path="/rp" element={<Outlet />}>
-				<Route
-					path="/rp/calendar"
-					element={
-						<Suspense fallback={<></>}>
-							<Calendar />
-						</Suspense>
-					}
-				/>
-			</Route>
+			<Route
+				path="/calendar"
+				element={
+					<Suspense fallback={<></>}>
+						<Calendar />
+					</Suspense>
+				}
+			/>
 		</Routes>
 	);
 };
