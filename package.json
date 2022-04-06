@@ -1,0 +1,23 @@
+{
+  "name": "rest_tool_fronts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "package": "yarn install:main && yarn install:child-reacct-app",
+    "install:child-reacct-app": "cd child_apps/react-app && yarn",
+    "install:main": "cd mian_app && yarn",
+    "dev:cr": "cd child_apps/react-app && yarn start",
+    "dev:m": "cd mian_app && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lniev/rest_tool_front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lniev/rest_tool_front/issues"
+  },
+  "homepage": "https://github.com/lniev/rest_tool_front#readme"
+}
