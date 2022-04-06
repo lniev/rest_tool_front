@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Descriptions } from 'antd';
+import { Avatar, Descriptions, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import 'antd/dist/antd.css';
@@ -22,7 +22,10 @@ export default (props) => {
         routes: level1Menu,
       }}
       headerRender={false}
-      menuItemRender={(item, dom) => <NavLink to={item.path}>{dom}</NavLink>}
+      menuItemRender={(item, dom) => <NavLink to={item.path} onClick={() => {
+          window.history.pushState(null, '', item.path)
+      }
+      }>{dom}</NavLink>}
       disableContentMargin
     >
       {/*<ProLayout*/}
@@ -48,5 +51,17 @@ export default (props) => {
       </PageContainer>
       {/*</ProLayout>*/}
     </ProLayout>
+    // <div style={{display: 'flex'}}>
+    //   <Menu defaultSelectedKeys={[level1Menu[0].path]} defaultOpenKeys={['sub1']} mode="inline" theme="dark" inlineCollapsed={true}>
+    //     {level1Menu.map((el) => (
+    //       <Menu.Item key={el.path} icon={el.icon}>
+    //         {el.name}
+    //       </Menu.Item>
+    //     ))}
+    //   </Menu>
+    //     <div>
+    //         <Router />
+    //     </div>
+    // </div>
   );
 };

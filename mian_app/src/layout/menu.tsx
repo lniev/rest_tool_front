@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeOutlined, CalendarOutlined, TabletOutlined, AntDesignOutlined } from '@ant-design/icons';
+import { HomeOutlined, CalendarOutlined, CodeOutlined, AntDesignOutlined } from '@ant-design/icons';
 
 export const level1Menu = [
   {
@@ -11,6 +11,11 @@ export const level1Menu = [
     path: '/rp/calendar',
     name: '日历',
     icon: <CalendarOutlined />,
+  },
+  {
+    path: '/rp/codeRun',
+    name: '日历',
+    icon: <CodeOutlined />,
   },
 ];
 export const level2Menu = [

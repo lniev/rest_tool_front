@@ -31,13 +31,13 @@ export default function AppRoute() {
           path="/rp"
           element={
             <Suspense fallback={loading}>
-              <ReactApp>
+              {/*<ReactApp>*/}
                 <Outlet></Outlet>
-              </ReactApp>
+              {/*</ReactApp>*/}
             </Suspense>
           }
         >
-          <Route path="/rp/*" element={<></>} />
+          <Route path="/rp/*" element={<ReactApp></ReactApp>} />
         </Route>
       </Routes>
     </div>
