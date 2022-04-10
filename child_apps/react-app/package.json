@@ -2,6 +2,7 @@
   "name": "react-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://112.124.18.15:8077/child_react",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@babel/core": "^7.16.0",
@@ -60,7 +61,7 @@
   },
   "scripts": {
     "start": "cross-env PORT=8077 DISABLE_ESLINT_PLUGIN=true node scripts/start.js",
-    "build": "cross-env PORT=8077 node scripts/build.js",
+    "build": "node scripts/build.js",
     "test": "cross-env PORT=8077 node scripts/test.js"
   },
   "eslintConfig": {
