@@ -2,6 +2,7 @@ import Router from './router/router';
 import './App.css';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MicroApp from './utils/microAppUtils';
 
 function App() {
   const navigate = useNavigate();
@@ -12,9 +13,9 @@ function App() {
   }
 
   useEffect(() => {
-    window.microApp.addDataListener(dataListener, true);
+    MicroApp.addDataListener?.(dataListener, true);
     return () => {
-      window.microApp.clearDataListener()
+      MicroApp.clearDataListener?.()
     }
   }, []);
   return (

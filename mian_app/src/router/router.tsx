@@ -1,7 +1,6 @@
 // router.js
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import BaseLayout from '../layout/BaseLayout';
 
 const ReactApp = lazy(() => import('../page/reactApp/reactApp'));
 const Home = lazy(() => import('../page/home/home.page'));

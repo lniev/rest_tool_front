@@ -14,7 +14,7 @@ export const level1Menu = [
   },
   {
     path: '/rp/codeRun',
-    name: '日历',
+    name: '在线运行',
     icon: <CodeOutlined />,
   },
 ];

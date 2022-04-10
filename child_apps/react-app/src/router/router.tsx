@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react';
 import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
-
 const Calendar = lazy(() => import('../pages/Calendar/Calendar'));
 const CodeRun = lazy(() => import('../pages/CodeRun/CodeRun'));
 

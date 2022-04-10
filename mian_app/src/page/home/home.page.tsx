@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import { memo, useState, useEffect, FC } from 'react';
 
 interface IProps {}
@@ -5,6 +6,11 @@ interface IProps {}
 const MainAppHomePage: FC<IProps> = () => {
   const [] = useState();
   useEffect(() => {}, []);
-  return <div>MainAppHomePage</div>;
+  return (
+    <div>
+      <Button>werqwerwqe</Button>
+      MainAppHomePage
+    </div>
+  );
 };
 export default MainAppHomePage;

@@ -22,10 +22,16 @@ export default (props) => {
         routes: level1Menu,
       }}
       headerRender={false}
-      menuItemRender={(item, dom) => <NavLink to={item.path} onClick={() => {
-          window.history.pushState(null, '', item.path)
-      }
-      }>{dom}</NavLink>}
+      menuItemRender={(item, dom) => (
+        <NavLink
+          to={item.path}
+          onClick={() => {
+            window.history.pushState(null, '', item.path);
+          }}
+        >
+          {dom}
+        </NavLink>
+      )}
       disableContentMargin
     >
       {/*<ProLayout*/}
@@ -46,9 +52,7 @@ export default (props) => {
       {/*  )}*/}
       {/*  menuHeaderRender={false}*/}
       {/*>*/}
-      <PageContainer>
-        <Router />
-      </PageContainer>
+      <Router />
       {/*</ProLayout>*/}
     </ProLayout>
     // <div style={{display: 'flex'}}>

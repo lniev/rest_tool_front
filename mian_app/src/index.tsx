@@ -4,7 +4,8 @@ import Router from './router/router';
 import { BrowserRouter } from 'react-router-dom';
 import microApp from '@micro-zoe/micro-app';
 import BaseLayout from './layout/BaseLayout';
-import './index.css'
+import './index.css';
+import { Button } from 'antd';
 microApp.start({
   plugins: {
     modules: {
@@ -41,11 +42,9 @@ microApp.start({
 
 const client = ReactDOM.createRoot(document.getElementById('root'));
 client.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <BaseLayout>
-        <Router />
-      </BaseLayout>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <BaseLayout>
+      <Router />
+    </BaseLayout>
+  </BrowserRouter>
 );

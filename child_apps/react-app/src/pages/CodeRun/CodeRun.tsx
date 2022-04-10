@@ -1,59 +1,36 @@
 import { memo, useState, useEffect, FC, useRef } from 'react';
-import Editor from '@monaco-editor/react';
-import styles from './styles.module.css';
-import { Button, Tabs } from 'antd';
-import { HtmlTemp, CssTmp, JsTmp } from './defaultTemplate';
-
-const { TabPane } = Tabs;
-
+import styles from './styles.module.scss';
+import { Button, Card, Switch, Tabs } from 'antd';
+import tools from './defaultTemplate';
+import { PreviewContentProps } from './container/Preview/Preview';
+const TabPane = Tabs.TabPane;
 interface IProps {}
-
 const CodeRunPage: FC<IProps> = () => {
-  const [] = useState();
-  const editorRef = useRef(null);
-  const preView = useRef<HTMLDivElement | null>(null);
-  const [scriptContent, setScriptContent] = useState();
-  useEffect(() => {}, []);
-
-  function handleEditorDidMount(editor, monaco) {
-    editorRef.current = editor;
-  }
-
-  function showValue() {
-    // console.log(editorRef.current.getValue());
-    // preView.current.innerHTML = editorRef.current.getValue()
-    setScriptContent(editorRef.current.getValue());
-    const script = document.createElement('script');
-    // script.src = "https://use.typekit.net/foobar.js";
-    script.async = true;
-    script.type = 'text/javascript';
-    script.innerHTML;
-    // preView.current.appendChild();
-    // console.log( )
-  }
-
   return (
-    <div style={{ display: 'flex' }}>
-      <div className={styles.codeRun}>
-        <Button type="primary" onClick={showValue} loading={false}>
-          value
-        </Button>
-        <Button type="primary" loading={false}>Primary Button</Button>
-        <Tabs defaultActiveKey="1" type="card">
-          <TabPane tab="😏&nbsp;HTML" key="HTML">
-            <Editor onMount={handleEditorDidMount} height="85vh" defaultLanguage="html" defaultValue={HtmlTemp} />
-          </TabPane>
-          {/*<TabPane tab="😥&nbsp;CSS" key="CSS">*/}
-          {/*  <Editor onMount={handleEditorDidMount} height="85vh" defaultLanguage="css" defaultValue={CssTmp} />*/}
-          {/*</TabPane>*/}
-          {/*<TabPane tab="😭&nbsp;JS" key="JS">*/}
-          {/*  <Editor onMount={handleEditorDidMount} height="85vh" defaultLanguage="javascript" defaultValue={JsTmp} />*/}
-          {/*</TabPane>*/}
-        </Tabs>
-      </div>
-      <div className={styles.preView} ref={preView} dangerouslySetInnerHTML={{ __html: scriptContent }}>
-        {/*<script dangerouslySetInnerHTML={{__html: 'try{Typekit.load({ async: true });}catch(e){}'}}></script>*/}
-      </div>
+    <div className={styles.onlineRunCode}>
+      <Tabs defaultActiveKey={tools[0].name} className={styles.toolBar}>
+        {tools.map((tool) => {
+          return (
+            <TabPane
+              tab={
+                <>
+                  {tool.icon}
+                  {tool.name}
+                </>
+              }
+              key={tool.name}
+            >
+              <iframe
+                src={tool.url}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                sandbox="allow-scripts allow-same-origin allow-popups"
+              ></iframe>
+            </TabPane>
+          );
+        })}
+      </Tabs>
     </div>
   );
 };
