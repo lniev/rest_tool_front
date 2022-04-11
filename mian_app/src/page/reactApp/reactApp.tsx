@@ -1,7 +1,7 @@
 import { memo, useState, useEffect, FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import microApp from '@micro-zoe/micro-app';
-import Config from '../../../../config';
+import Config from '../../config';
 interface IProps {}
 
 const ReactAppPage: FC<IProps> = (props) => {
@@ -18,7 +18,6 @@ const ReactAppPage: FC<IProps> = (props) => {
     microApp.setData('react-app', { pathname: location.pathname.replace(baseRoute, '/'), pushState });
   });
   const url = Config.child_react_url
-
   return (
     <div>
       <micro-app name="react-app" url={url} baseroute={baseRoute} keep-alive></micro-app>

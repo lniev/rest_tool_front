@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 
 const ReactApp = lazy(() => import('../page/reactApp/reactApp'));
 const Home = lazy(() => import('../page/home/home.page'));
+const ToolsNav = lazy(() => import('../page/toolsNav/toolsNav.page'));
 export default function AppRoute() {
   const loading = <div>Loading...</div>;
   return (
@@ -27,11 +28,19 @@ export default function AppRoute() {
           }
         />
         <Route
+          path="/toolsNav"
+          element={
+            <Suspense fallback={loading}>
+              <ToolsNav />
+            </Suspense>
+          }
+        />
+        <Route
           path="/rp"
           element={
             <Suspense fallback={loading}>
               {/*<ReactApp>*/}
-                <Outlet></Outlet>
+              <Outlet></Outlet>
               {/*</ReactApp>*/}
             </Suspense>
           }
