@@ -18,7 +18,7 @@ export const level1Menu = [
     icon: <CalendarOutlined />,
   },
   {
-    path: '/rp/codeRun',
+    path: '/codeRun',
     name: '在线运行',
     icon: <CodeOutlined />,
   },

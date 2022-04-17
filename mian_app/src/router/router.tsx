@@ -1,24 +1,23 @@
 // router.js
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
+import { Routes, Route, Link, Outlet,Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 const ReactApp = lazy(() => import('../page/reactApp/reactApp'));
 const Home = lazy(() => import('../page/home/home.page'));
-const ToolsNav = lazy(() => import('../page/toolsNav/toolsNav.page'));
+const ToolsNav = lazy(() => import('../page/ToolsNav/toolsNav.page'));
+const CodeRun = lazy(() => import('../page/CodeRun/CodeRun.page'));
 export default function AppRoute() {
   const loading = <div>Loading...</div>;
   return (
     <div>
       <Routes>
-        {/* <Route
+        <Route
           path="/"
           element={
-            // <Suspense fallback={loading}>
-            //   <Home />
-            // </Suspense>
-            <div>/////</div>
+            <Navigate to="/home"></Navigate>
+
           }
-        ></Route> */}
+        ></Route>
         <Route
           path="/home"
           element={
@@ -35,6 +34,15 @@ export default function AppRoute() {
             </Suspense>
           }
         />
+        <Route
+          path="/codeRun"
+          element={
+            <Suspense fallback={loading}>
+              <CodeRun></CodeRun>
+            </Suspense>
+          }
+        >
+        </Route>
         <Route
           path="/rp"
           element={

@@ -2,7 +2,7 @@
   "name": "base",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://112.124.18.15/",
+  "homepage": ".",
   "dependencies": {
     "@ant-design/pro-layout": "^6.34.8",
     "@micro-zoe/micro-app": "^0.8.5",
