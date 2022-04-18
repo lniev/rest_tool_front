@@ -6,7 +6,9 @@ interface IProps {}
 const ShortcutToolsContainer: FC<IProps> = (props) => {
   const [,] = useState();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+  }, []);
+
 
   const content = (
     <div className={styles.tool}>
@@ -18,7 +20,7 @@ const ShortcutToolsContainer: FC<IProps> = (props) => {
   );
 
   return (
-    <Popover placement="rightBottom" title={'工具集'} content={content} trigger="click">
+    <Popover className={styles.popover} placement="rightBottom" title={'工具集'} content={content} trigger="click">
       {props.children}
     </Popover>
   );
