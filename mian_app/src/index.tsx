@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import microApp from '@micro-zoe/micro-app';
 import BaseLayout from './layout/BaseLayout';
 import './index.css';
-import { Button } from 'antd';
 microApp.start({
   plugins: {
     modules: {

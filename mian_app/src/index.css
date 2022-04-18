@@ -13,3 +13,8 @@
   width: 8px !important;
   border-radius: 4px;
 }
+
+.react-draggable {
+  top: 0;
+  left: 0;
+}
