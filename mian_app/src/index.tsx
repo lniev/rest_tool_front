@@ -4,6 +4,8 @@ import Router from './router/router';
 import { BrowserRouter } from 'react-router-dom';
 import microApp from '@micro-zoe/micro-app';
 import BaseLayout from './layout/BaseLayout';
+import store from './store';
+import { Provider } from 'react-redux';
 import './index.css';
 microApp.start({
   plugins: {
@@ -41,9 +43,11 @@ microApp.start({
 
 const client = ReactDOM.createRoot(document.getElementById('root'));
 client.render(
-  <BrowserRouter>
-    <BaseLayout>
-      <Router />
-    </BaseLayout>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <BaseLayout>
+        <Router />
+      </BaseLayout>
+    </BrowserRouter>
+  </Provider>
 );
