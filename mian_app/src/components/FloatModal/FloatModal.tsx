@@ -1,15 +1,16 @@
 // @ts-ignore
-import { useDeferredValue, useState, useEffect, FC, useRef, useMemo } from 'react';
+import { useDeferredValue, useState, useEffect, FC, useRef, useMemo, startTransition } from 'react';
 import styles from './styles.module.scss';
 import Draggable from 'react-draggable';
 import classNames from 'classnames';
 import { CloseSquareTwoTone } from '@ant-design/icons';
+import { Resizable } from 're-resizable';
+import Helper from '../../utils/helper';
+
 interface IProps {}
 
 const FloatModalComponent: FC<IProps> = (props) => {
-  const [layoutContent, setLayoutContent] = useState<Element>();
   const handle = useMemo(() => '.handle' + Math.floor(Math.random() * 10000), []);
-  const containerRef = useRef<HTMLElement | null>();
   const [bounds, setBounds] = useState({
     left: 0,
     top: 0,
@@ -18,62 +19,76 @@ const FloatModalComponent: FC<IProps> = (props) => {
   });
   const defBounds = useDeferredValue(bounds, { timeoutMs: 1000 });
   useEffect(() => {
-    (function () {
-      var throttle = function (type, name, obj?: any) {
-        obj = obj || window;
-        var running = false;
-        var func = function () {
-          if (running) {
-            return;
-          }
-          running = true;
-          requestAnimationFrame(function () {
-            obj.dispatchEvent(new CustomEvent(name));
-            running = false;
-          });
-        };
-        obj.addEventListener(type, func);
-      };
-      throttle('resize', 'optimizedResize');
-    })();
-
+    // 设置节流事件
+    Helper.throttleEvent('resize', 'optimizedResize');
+    // 获取节点
     const ele = document.getElementsByClassName('ant-layout')[0];
     const container = document.getElementById(handle);
-    setLayoutContent(ele);
-    containerRef.current = container;
-    if (ele) {
+    // 设置边界
+    if (ele && container) {
       setBounds({
         ...bounds,
         right: ele.clientWidth - container.offsetWidth - 48,
         bottom: ele.clientHeight - container.offsetHeight,
       });
     }
-    window.addEventListener('optimizedResize', function (e) {
+    // 监听窗口变化、重新设置边界
+    const optimizedResizeFun = function (e) {
       setBounds({
         ...bounds,
         right: ele.clientWidth - container.offsetWidth - 48,
         bottom: ele.clientHeight - container.offsetHeight,
       });
-    });
+    };
+    window.addEventListener('optimizedResize', optimizedResizeFun);
+    return () => {
+      window.removeEventListener('optimizedResize', optimizedResizeFun);
+    };
   }, []);
 
-  // const bounds = {
-  //   left: 0,
-  //   top: 0,
-  //   right: layoutContent ? layoutContent.clientWidth - containerRef.current.offsetWidth - 48 : 300,
-  //   bottom: layoutContent ? layoutContent.clientHeight - containerRef.current.offsetHeight : 300,
+  function handleResize() {
+    const ele = document.getElementsByClassName('ant-layout')[0];
+    const container = document.getElementById(handle);
+    if (ele && container) {
+      console.log(container);
+      setBounds({
+        ...bounds,
+        right: ele.clientWidth - container.offsetWidth - 48,
+        bottom: ele.clientHeight - container.offsetHeight,
+      });
+    }
+  }
 
-  // };
+  // 允许resize的方向
+  const enableOption = {
+    top: false,
+    right: true,
+    bottom: true,
+    left: false,
+    topRight: false,
+    bottomRight: true,
+    bottomLeft: false,
+    topLeft: false,
+  };
 
   return (
-    <Draggable handle={handle} bounds={defBounds} defaultPosition={{ x: 100, y: 100 }}>
-      <div id={handle} className={classNames(styles.floatModal, handle.slice(1))}>
-        <div className={styles.header}>
+    // @ts-ignore
+    <Draggable handle={'header'} bounds={defBounds} defaultPosition={{ x: 100, y: 100 }}>
+      <Resizable
+        // @ts-ignore
+        id={handle}
+        defaultSize={{ width: 600, height: 400 }}
+        className={classNames(styles.floatModal, handle.slice(1))}
+        onResizeStop={handleResize}
+        bounds={'window'}
+        enable={enableOption}
+      >
+        <header className={styles.header}>
           <span>header</span>
           <CloseSquareTwoTone />
-        </div>
+        </header>
         {props.children}
-      </div>
+      </Resizable>
     </Draggable>
   );
 };
