@@ -3,7 +3,7 @@ import { Routes, Route, Link, Outlet,Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 const ReactApp = lazy(() => import('../page/reactApp/reactApp'));
-const Home = lazy(() => import('../page/home/home.page'));
+const Home = lazy(() => import('../page/Home/home.page'));
 const ToolsNav = lazy(() => import('../page/ToolsNav/toolsNav.page'));
 const CodeRun = lazy(() => import('../page/CodeRun/CodeRun.page'));
 export default function AppRoute() {
