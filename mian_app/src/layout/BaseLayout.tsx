@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Avatar, Descriptions, Menu } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { AppstoreOutlined } from '@ant-design/icons';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import 'antd/dist/antd.css';
 import '@ant-design/pro-layout/dist/layout.css';
 import { level1Menu, level2Menu } from './menu';
 import { useLocation, NavLink } from 'react-router-dom';
 import Router from '../router/router';
-
+import ShortcutToolsContainer from '../container/ShortcutTools/ShortcutTools';
+import FloatModalComponent from '../components/FloatModal/FloatModal';
 export default (props) => {
   const location = useLocation();
   return (
@@ -22,11 +22,24 @@ export default (props) => {
         routes: level1Menu,
       }}
       headerRender={false}
-      menuItemRender={(item, dom) => <NavLink to={item.path} onClick={() => {
-          window.history.pushState(null, '', item.path)
-      }
-      }>{dom}</NavLink>}
+      menuItemRender={(item, dom) => (
+        <NavLink
+          to={item.path}
+          onClick={() => {
+            window.history.pushState(null, '', item.path);
+          }}
+        >
+          {dom}
+        </NavLink>
+      )}
       disableContentMargin
+      menuFooterRender={() => (
+        <ShortcutToolsContainer>
+          <div style={{ color: '#fff', width: '48px', height: '40px', fontSize: '18px', textAlign: 'center' }}>
+            <AppstoreOutlined />
+          </div>
+        </ShortcutToolsContainer>
+      )}
     >
       {/*<ProLayout*/}
       {/*  location={{*/}
@@ -46,9 +59,8 @@ export default (props) => {
       {/*  )}*/}
       {/*  menuHeaderRender={false}*/}
       {/*>*/}
-      <PageContainer>
-        <Router />
-      </PageContainer>
+      <Router />
+      <FloatModalComponent />
       {/*</ProLayout>*/}
     </ProLayout>
     // <div style={{display: 'flex'}}>

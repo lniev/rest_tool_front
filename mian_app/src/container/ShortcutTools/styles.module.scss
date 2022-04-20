@@ -1,0 +1,16 @@
+.tool {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  .item {
+    display: in;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #e7e7e7;
+    background-color: saddlebrown;
+  }
+}
+
+.popover {
+  transform: translateY(-5px);
+}

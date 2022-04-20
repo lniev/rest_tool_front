@@ -1,3 +1,20 @@
-.ant-menu.ant-menu-inline-collapsed  {
-    width: 60px;
+.ant-menu.ant-menu-inline-collapsed {
+  width: 60px;
+}
+.decorationsOverviewRuler {
+  width: 8px !important;
+  border-radius: 4px;
+}
+.scrollbar {
+  border-radius: 4px;
+  width: 8px !important;
+}
+.slider {
+  width: 8px !important;
+  border-radius: 4px;
+}
+
+.react-draggable {
+  top: 0;
+  left: 0;
 }

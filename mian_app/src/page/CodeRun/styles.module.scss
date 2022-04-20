@@ -1,0 +1,28 @@
+.onlineRunCode {
+  display: flex;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.codeRun {
+  height: 90vh;
+  width: 50vw;
+  margin-right: 6px;
+}
+
+.toolBar {
+  padding: 8px;
+  width: 100%;
+  height: 100%;
+  :global(.ant-tabs-content) {
+    height: calc(100vh - 80px);
+  }
+  :global(.ant-tabs-nav) {
+    margin-bottom: 8px;
+  }
+}
+
+.preview {
+  background-color: navajowhite;
+  flex: 1;
+}

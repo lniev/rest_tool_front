@@ -8,13 +8,18 @@ export const level1Menu = [
     icon: <HomeOutlined />,
   },
   {
+    path: '/toolsNav',
+    name: '工具箱',
+    icon: <HomeOutlined />,
+  },
+  {
     path: '/rp/calendar',
     name: '日历',
     icon: <CalendarOutlined />,
   },
   {
-    path: '/rp/codeRun',
-    name: '日历',
+    path: '/codeRun',
+    name: '在线运行',
     icon: <CodeOutlined />,
   },
 ];

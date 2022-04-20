@@ -12,17 +12,15 @@ declare global {
       removeDataListener: (dataListener: Function) => void;
       clearDataListener: Function;
     };
+    __MICRO_APP_BASE_ROUTE__: string
   }
 }
 // @ts-ignore
 const _App = ReactDOM.createRoot(document.getElementById('react-app'));
 _App.render(
-  <React.StrictMode>
-    {/*@ts-ignore*/}
-    <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
+    <App />
+  </BrowserRouter>
 );
 
 // window.addEventListener('unmount', function () {
