@@ -18,3 +18,14 @@
   top: 0;
   left: 0;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  /*background-color: #f4f9ff;*/
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(176, 196, 222,0.4);
+}
