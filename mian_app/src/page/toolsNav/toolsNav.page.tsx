@@ -1,5 +1,5 @@
 import { memo, useState, useEffect, FC, useRef } from 'react';
-import JsonFormatContainer from './container/JsonFormat/JsonFormat.container';
+import JsonFormatContainer from '../../container/JsonFormat/JsonFormat.container';
 
 interface IProps {}
 
@@ -8,8 +8,8 @@ const ToolsNav: FC<IProps> = () => {
 
   return (
     <div>
-      <div>json转换</div>
-      <JsonFormatContainer />
+      {/*<div>json转换</div>*/}
+      {/*<JsonFormatContainer />*/}
     </div>
   );
 };
