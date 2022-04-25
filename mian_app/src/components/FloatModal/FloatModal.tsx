@@ -1,15 +1,23 @@
 // @ts-ignore
 import { useDeferredValue, useState, useEffect, FC, useRef, useMemo, startTransition } from 'react';
 import styles from './styles.module.scss';
-import Draggable from 'react-draggable';
+import Draggable, { DraggableProps } from 'react-draggable';
 import classNames from 'classnames';
 import { CloseSquareTwoTone } from '@ant-design/icons';
-import { Resizable } from 're-resizable';
+import { Resizable, ResizableProps } from 're-resizable';
 import Helper from '../../utils/helper';
 
-interface IProps {}
+export interface FloatModalProps {
+  dragProps?: Partial<DraggableProps>;
+  resizeProps?: Partial<ResizableProps>;
+  title?: string;
+  onClose?: (props: FloatModalProps) => void;
+  onClick?: (e: MouseEvent) => void
+  zIndex?: number
+}
 
-const FloatModalComponent: FC<IProps> = (props) => {
+const FloatModalComponent: FC<FloatModalProps> = (props) => {
+  const { dragProps, resizeProps, onClick, zIndex, title, children } = props;
   const handle = useMemo(() => '.handle' + Math.floor(Math.random() * 10000), []);
   const [bounds, setBounds] = useState({
     left: 0,
@@ -50,7 +58,6 @@ const FloatModalComponent: FC<IProps> = (props) => {
     const ele = document.getElementsByClassName('ant-layout')[0];
     const container = document.getElementById(handle);
     if (ele && container) {
-      console.log(container);
       setBounds({
         ...bounds,
         right: ele.clientWidth - container.offsetWidth - 48,
@@ -71,9 +78,17 @@ const FloatModalComponent: FC<IProps> = (props) => {
     topLeft: false,
   };
 
+  function onClose() {
+    try {
+      props.onClose && props.onClose(props);
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
   return (
     // @ts-ignore
-    <Draggable handle={'header'} bounds={defBounds} defaultPosition={{ x: 100, y: 100 }}>
+    <Draggable handle={'header'} bounds={defBounds} defaultPosition={{ x: 100, y: 100 }} {...dragProps} >
       <Resizable
         // @ts-ignore
         id={handle}
@@ -81,13 +96,16 @@ const FloatModalComponent: FC<IProps> = (props) => {
         className={classNames(styles.floatModal, handle.slice(1))}
         onResizeStop={handleResize}
         bounds={'window'}
+        style={{zIndex: zIndex}}
         enable={enableOption}
+        onClick={onClick}
+        {...resizeProps}
       >
         <header className={styles.header}>
-          <span>header</span>
-          <CloseSquareTwoTone />
+          <span>{title}</span>
+          <CloseSquareTwoTone onClick={onClose} />
         </header>
-        {props.children}
+        <div className={styles.body}>{children}</div>
       </Resizable>
     </Draggable>
   );
