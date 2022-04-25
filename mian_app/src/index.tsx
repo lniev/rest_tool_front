@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Router from './router/router';
 import { BrowserRouter } from 'react-router-dom';
 import microApp from '@micro-zoe/micro-app';
 import BaseLayout from './layout/BaseLayout';
 import store from './store';
 import { Provider } from 'react-redux';
 import './index.css';
+import { enableMapSet } from 'immer';
+enableMapSet()
 microApp.start({
   plugins: {
     modules: {
@@ -45,9 +46,7 @@ const client = ReactDOM.createRoot(document.getElementById('root'));
 client.render(
   <Provider store={store}>
     <BrowserRouter>
-      <BaseLayout>
-        <Router />
-      </BaseLayout>
+      <BaseLayout />
     </BrowserRouter>
   </Provider>
 );
