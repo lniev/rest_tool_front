@@ -7,7 +7,7 @@ import { level1Menu, level2Menu } from './menu';
 import { useLocation, NavLink } from 'react-router-dom';
 import Router from '../router/router';
 import ShortcutToolsContainer from '../container/ShortcutTools/ShortcutTools';
-import FloatModalComponent from '../components/FloatModal/FloatModal';
+import FloatModalStackComponent from "../components/FloatModalStack/FloatModalStack";
 export default (props) => {
   const location = useLocation();
   return (
@@ -60,7 +60,7 @@ export default (props) => {
       {/*  menuHeaderRender={false}*/}
       {/*>*/}
       <Router />
-      <FloatModalComponent />
+      <FloatModalStackComponent />
       {/*</ProLayout>*/}
     </ProLayout>
     // <div style={{display: 'flex'}}>
