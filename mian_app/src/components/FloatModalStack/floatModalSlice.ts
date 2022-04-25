@@ -25,9 +25,8 @@ export const floatModalSlice = createSlice({
   },
   reducers: {
     pushModal: (state, { payload }) => {
-      if(state.modalStack.size > 6)return
+      if (state.modalStack.size > 6) return;
       let lastModalDefaultPosition = [...state.modalStack][0]?.dragProps?.defaultPosition || {x: 0, y: 0}
-      console.log([...state.modalStack],state.modalStack.size)
       const newOne = {
         ...payload,
         dragProps: {
@@ -37,7 +36,6 @@ export const floatModalSlice = createSlice({
         key: Math.random(),
         zIndex: state.indexMax + 1
       }
-      console.log(lastModalDefaultPosition.x,lastModalDefaultPosition.y)
       state.modalStack.add(newOne);
     },
     popModal(state, { payload }) {

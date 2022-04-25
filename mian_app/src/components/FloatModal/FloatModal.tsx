@@ -1,5 +1,5 @@
 // @ts-ignore
-import { useDeferredValue, useState, useEffect, FC, useRef, useMemo, startTransition } from 'react';
+import {useDeferredValue, useState, useEffect, FC, useRef, useMemo, startTransition, ReactNode} from 'react';
 import styles from './styles.module.scss';
 import Draggable, { DraggableProps } from 'react-draggable';
 import classNames from 'classnames';
@@ -14,10 +14,11 @@ export interface FloatModalProps {
   onClose?: (props: FloatModalProps) => void;
   onClick?: (e: MouseEvent) => void
   zIndex?: number
+  content: () => ReactNode
 }
 
 const FloatModalComponent: FC<FloatModalProps> = (props) => {
-  const { dragProps, resizeProps, onClick, zIndex, title, children } = props;
+  const { dragProps, resizeProps, onClick, zIndex, title, children, content } = props;
   const handle = useMemo(() => '.handle' + Math.floor(Math.random() * 10000), []);
   const [bounds, setBounds] = useState({
     left: 0,
@@ -105,7 +106,7 @@ const FloatModalComponent: FC<FloatModalProps> = (props) => {
           <span>{title}</span>
           <CloseSquareTwoTone onClick={onClose} />
         </header>
-        <div className={styles.body}>{children}</div>
+        <div className={styles.body}>{content && content()}</div>
       </Resizable>
     </Draggable>
   );
