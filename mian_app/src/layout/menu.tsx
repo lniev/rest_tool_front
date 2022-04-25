@@ -7,11 +7,11 @@ export const level1Menu = [
     name: '首页',
     icon: <HomeOutlined />,
   },
-  {
-    path: '/toolsNav',
-    name: '工具箱',
-    icon: <HomeOutlined />,
-  },
+  // {
+  //   path: '/toolsNav',
+  //   name: '工具箱',
+  //   icon: <HomeOutlined />,
+  // },
   {
     path: '/rp/calendar',
     name: '日历',
