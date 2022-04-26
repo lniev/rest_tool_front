@@ -5,6 +5,12 @@ const ToolList = [{
   title: 'JSON Format',
   type: 'jsonFormat',
   label: 'JSON格式化',
+  resizeProps:{
+    defaultSize: {
+      x: 600,
+      height: 900,
+    }
+  },
   icon: () => {
     return <img src={json}/>
   },

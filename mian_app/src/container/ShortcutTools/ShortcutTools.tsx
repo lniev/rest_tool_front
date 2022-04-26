@@ -26,7 +26,7 @@ const ShortcutToolsContainer: FC<IProps> = (props) => {
   );
 
   return (
-    <Popover className={styles.popover} placement="rightBottom" title={'工具集'} content={content} trigger="click">
+    <Popover className={styles.popover} placement="rightBottom" title={'工具集'} content={content}>
       {props.children}
     </Popover>
   );
