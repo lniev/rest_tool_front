@@ -14,10 +14,8 @@ export default function AppRoute() {
         <Route
           path="/"
           element={
-            <Navigate to="/home"></Navigate>
-
-          }
-        ></Route>
+            <Navigate to="/home" />}
+        />
         <Route
           path="/home"
           element={
@@ -38,7 +36,7 @@ export default function AppRoute() {
           path="/codeRun"
           element={
             <Suspense fallback={loading}>
-              <CodeRun></CodeRun>
+              <CodeRun/>
             </Suspense>
           }
         >
@@ -48,12 +46,12 @@ export default function AppRoute() {
           element={
             <Suspense fallback={loading}>
               {/*<ReactApp>*/}
-              <Outlet></Outlet>
+              <Outlet />
               {/*</ReactApp>*/}
             </Suspense>
           }
         >
-          <Route path="/rp/*" element={<ReactApp></ReactApp>} />
+          <Route path="/rp/*" element={<ReactApp />} />
         </Route>
       </Routes>
     </div>
