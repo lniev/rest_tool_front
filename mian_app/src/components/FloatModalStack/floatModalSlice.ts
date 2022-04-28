@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice ,createAction } from '@reduxjs/toolkit';
 import { FloatModalProps } from '../FloatModal/FloatModal';
 import createSelector from "../../store/createSelector";
 
@@ -51,8 +51,21 @@ export const floatModalSlice = createSlice({
       }
     },
   },
+  extraReducers:(builder) => {
+    //@ts-ignore
+    // builder.addCase(popModalBy, (state, {payload}) => {
+    //   // @ts-ignore
+    //   state.modalStack.delete(payload);
+    //   debugger
+    //   // @ts-ignore
+    //   return  state
+    // })
+  }
+
 });
 export const useFloatModalSelector = createSelector<ModalStackType>(floatModalKey);
 export const { pushModal, popModal, refreshModal, setModalIndex } = floatModalSlice.actions;
+// export const popModalBy = createAction<ModalStackItem>(`${floatModalKey}/popModal`)
+
 export default floatModalSlice.reducer;
 
