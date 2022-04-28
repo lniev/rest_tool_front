@@ -1,0 +1,38 @@
+.base64 {
+  overflow: hidden;
+  position: relative;
+
+  &_dropArea {
+    margin: 20px;
+    height: 300px;
+    border: 1px solid #1890ff;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &_btnGroup {
+    text-align: center;
+    button {
+      margin: 0 10px;
+    }
+  }
+
+  &_result {
+    border: 1px solid #1890ff;
+    width: -webkit-fill-available;
+    overflow: auto;
+    margin: 20px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+
+}
