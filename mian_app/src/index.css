@@ -1,6 +1,6 @@
 .ant-menu.ant-menu-inline-collapsed {
   width: 60px;
-  /*菜单宽度*/
+  /* 菜单宽度 */
 }
 
 .ant-layout {
@@ -9,16 +9,16 @@
 
 .ant-layout-sider {
   z-index: 99999999999;
-  /*让左侧菜单栏层级最高防止被浮动modal遮挡*/
+  /* 让左侧菜单栏层级最高防止被浮动modal遮挡 */
 }
 
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
   border-radius: 4px;
-  /*background-color: #f4f9ff;*/
+  /* background-color: #f4f9ff; */
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(176, 196, 222,0.4);
+  background-color: rgba(176, 196, 222, 0.4);
 }

@@ -1,7 +1,7 @@
 import json from '../../assets/img/tools/json.png';
 import JsonFormat from '../JsonFormat/JsonFormat.container';
 import Base64 from '../Base64/Base64.container';
-import base64 from '../../assets/img/tools/base64.png'
+import base64 from '../../assets/img/tools/base64.png';
 
 const ToolList = [
   {
@@ -40,4 +40,4 @@ const ToolList = [
   },
 ];
 
-export default ToolList
+export default ToolList;

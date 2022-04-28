@@ -5,22 +5,22 @@ function Img(props) {
 }
 const tools = [
   {
-    name: `jsrun`,
+    name: 'jsrun',
     url: 'https://jsrun.net/new',
     icon: <Img src={jsRunIcon} />,
   },
   {
-    name: `codeRun`,
+    name: 'codeRun',
     url: 'https://wanglin2.github.io/code-run-online/#/',
     icon: <></>,
   },
   {
-    name: `codesandbox`,
+    name: 'codesandbox',
     url: 'https://codesandbox.io/s/',
     icon: <CodeSandboxOutlined />,
   },
   {
-    name: `stackblitz`,
+    name: 'stackblitz',
     url: 'https://stackblitz.com/fork/react',
     icon: <ThunderboltOutlined />,
   },

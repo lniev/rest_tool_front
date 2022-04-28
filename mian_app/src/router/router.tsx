@@ -1,5 +1,5 @@
 // router.js
-import { Routes, Route, Link, Outlet,Navigate } from 'react-router-dom';
+import { Routes, Route, Link, Outlet, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 const ReactApp = lazy(() => import('../page/reactApp/reactApp'));
@@ -14,7 +14,8 @@ export default function AppRoute() {
         <Route
           path="/"
           element={
-            <Navigate to="/home" />}
+            <Navigate to="/home" />
+}
         />
         <Route
           path="/home"
@@ -36,18 +37,17 @@ export default function AppRoute() {
           path="/codeRun"
           element={
             <Suspense fallback={loading}>
-              <CodeRun/>
+              <CodeRun />
             </Suspense>
           }
-        >
-        </Route>
+        />
         <Route
           path="/rp"
           element={
             <Suspense fallback={loading}>
-              {/*<ReactApp>*/}
+              {/* <ReactApp> */}
               <Outlet />
-              {/*</ReactApp>*/}
+              {/* </ReactApp> */}
             </Suspense>
           }
         >

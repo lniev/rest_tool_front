@@ -7,7 +7,7 @@ import { level1Menu, level2Menu } from './menu';
 import { useLocation, NavLink } from 'react-router-dom';
 import Router from '../router/router';
 import ShortcutToolsContainer from '../container/ShortcutTools/ShortcutTools';
-import FloatModalStackComponent from "../components/FloatModalStack/FloatModalStack";
+import FloatModalStackComponent from '../components/FloatModalStack/FloatModalStack';
 export default (props) => {
   const location = useLocation();
   return (
@@ -41,27 +41,27 @@ export default (props) => {
         </ShortcutToolsContainer>
       )}
     >
-      {/*<ProLayout*/}
-      {/*  location={{*/}
-      {/*    pathname: location.pathname,*/}
-      {/*  }}*/}
-      {/*  route={{*/}
-      {/*    routes: level2Menu,*/}
-      {/*  }}*/}
-      {/*  navTheme="light"*/}
-      {/*  style={{*/}
-      {/*    height: '400px',*/}
-      {/*  }}*/}
-      {/*  rightContentRender={() => (*/}
-      {/*    <div>*/}
-      {/*      <Avatar shape="square" size="small" icon={<UserOutlined />} />*/}
-      {/*    </div>*/}
-      {/*  )}*/}
-      {/*  menuHeaderRender={false}*/}
-      {/*>*/}
+      {/* <ProLayout */}
+      {/*  location={{ */}
+      {/*    pathname: location.pathname, */}
+      {/*  }} */}
+      {/*  route={{ */}
+      {/*    routes: level2Menu, */}
+      {/*  }} */}
+      {/*  navTheme="light" */}
+      {/*  style={{ */}
+      {/*    height: '400px', */}
+      {/*  }} */}
+      {/*  rightContentRender={() => ( */}
+      {/*    <div> */}
+      {/*      <Avatar shape="square" size="small" icon={<UserOutlined />} /> */}
+      {/*    </div> */}
+      {/*  )} */}
+      {/*  menuHeaderRender={false} */}
+      {/* > */}
       <Router />
       <FloatModalStackComponent />
-      {/*</ProLayout>*/}
+      {/* </ProLayout> */}
     </ProLayout>
     // <div style={{display: 'flex'}}>
     //   <Menu defaultSelectedKeys={[level1Menu[0].path]} defaultOpenKeys={['sub1']} mode="inline" theme="dark" inlineCollapsed={true}>

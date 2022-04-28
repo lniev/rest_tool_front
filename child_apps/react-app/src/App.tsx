@@ -8,15 +8,15 @@ function App() {
   const navigate = useNavigate();
 
   function dataListener(data) {
-    console.log('huoqu ',data)
+    console.log('huoqu ', data);
     navigate(data.pathname);
   }
 
   useEffect(() => {
     MicroApp.addDataListener?.(dataListener, true);
     return () => {
-      MicroApp.clearDataListener?.()
-    }
+      MicroApp.clearDataListener?.();
+    };
   }, []);
   return (
     <div className="App">

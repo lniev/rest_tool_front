@@ -8,7 +8,7 @@ const Router = () => {
   console.log('location', location);
   return (
     <Routes>
-      <Route path="/" element={<div>index child react-app</div>}></Route>
+      <Route path="/" element={<div>index child react-app</div>} />
       <Route
         path="/calendar"
         element={

@@ -8,7 +8,11 @@
     "install:child-reacct-app": "cd child_apps/react-app && yarn",
     "install:main": "cd mian_app && yarn",
     "dev:cr": "cd child_apps/react-app && yarn start",
-    "dev:m": "cd mian_app && yarn start"
+    "dev:m": "cd mian_app && yarn start",
+    "eslint": "eslint --fix --ext  .js,.jsx,.ts,.tsx ./",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\"",
+    "prettier": "prettier **/* --write",
+    "lint": "npm run eslint && npm run stylelint"
   },
   "repository": {
     "type": "git",

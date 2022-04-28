@@ -62,7 +62,11 @@
   "scripts": {
     "start": "cross-env PORT=8077 DISABLE_ESLINT_PLUGIN=true node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "cross-env PORT=8077 node scripts/test.js"
+    "test": "cross-env PORT=8077 node scripts/test.js",
+    "eslint": "eslint --fix --ext  .js,.jsx,.ts,.tsx ./",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\"",
+    "prettier": "prettier **/* --write",
+    "lint": "npm run eslint && npm run stylelint"
   },
   "eslintConfig": {
     "extends": [

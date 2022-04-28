@@ -7,7 +7,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 import './index.css';
 import { enableMapSet } from 'immer';
-enableMapSet()
+enableMapSet();
 microApp.start({
   plugins: {
     modules: {
@@ -25,7 +25,7 @@ microApp.start({
       //     },
       //   },
       // ],
-      ['vue-app']: [
+      'vue-app': [
         {
           loader(code) {
             if (process.env.NODE_ENV === 'development') {
@@ -48,5 +48,5 @@ client.render(
     <BrowserRouter>
       <BaseLayout />
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 );

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import isEqual from 'lodash/isEqual';
 import cloneDeep from 'lodash/cloneDeep';
 import JSONEditor from 'jsoneditor';
@@ -6,7 +6,7 @@ import 'jsoneditor/dist/jsoneditor.css';
 import './JsonEditor.css';
 
 export default class JSONEditorReact extends Component {
-  componentDidMount () {
+  componentDidMount() {
     // copy all properties into options for the editor
     // (except the properties for the JSONEditorReact component itself)
     const options = Object.assign({}, this.props);
@@ -49,7 +49,7 @@ export default class JSONEditorReact extends Component {
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     if (this.jsoneditor) {
       this.jsoneditor.destroy();
     }
@@ -57,7 +57,7 @@ export default class JSONEditorReact extends Component {
 
   render() {
     return (
-        <div className="jsoneditor-react-container" ref={elem => this.container = elem} />
+      <div className="jsoneditor-react-container" ref={elem => this.container = elem} />
     );
   }
 }
